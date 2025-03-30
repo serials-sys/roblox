@@ -4571,12 +4571,12 @@ function library:init()
             objects = {};
             text = {
                 {self.cheatname, true},
-                {"Private", true},
+                {"Private", false},
                 {self.gamename, true},
                 {'0 fps', true},
                 {'0ms', true},
                 {'00:00:00', true},
-                {'M, D, Y', true},
+                {'M, D, Y', false},
             };
             lock = 'custom';
             position = newUDim2(0,0,0,0);
@@ -4602,7 +4602,7 @@ function library:init()
                     end
                 end
 
-                self.objects.text.Text = table.concat(text,' / ')
+                self.objects.text.Text = table.concat(text,' | ')
                 self.objects.background.Size = newUDim2(0, self.objects.text.TextBounds.X + 10, 0, 17)
 
                 local size = self.objects.background.Object.Size;
@@ -4787,8 +4787,8 @@ function library:CreateSettingsTab(menu)
 
     mainSection:AddToggle({text = 'Watermark', flag = 'watermark_enabled', state = true,});
 
-    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 36.6});
-    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 6.7});
+    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 10.5});
+    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 2.3});
 
     mainSection:AddToggle({text = 'Keybinds', flag = 'keybind_indicator', state = true, callback = function(bool)
         library.keyIndicator:SetEnabled(bool);
