@@ -1311,7 +1311,7 @@ function library:init()
             })
 
             objs.tabHolder = utility:Draw('Square', {
-                Size = newUDim2(1,0,0,20);
+                Size = newUDim2(1,0,0,100);
                 Position = newUDim2(0,0,0,-21);
                 Parent = objs.groupBackground;
                 Transparency = 0;
@@ -4571,12 +4571,12 @@ function library:init()
             objects = {};
             text = {
                 {self.cheatname, true},
-                {"Private", false},
+                {"Private", true},
                 {self.gamename, true},
                 {'0 fps', true},
                 {'0ms', true},
                 {'00:00:00', true},
-                {'M, D, Y', false},
+                {'M, D, Y', true},
             };
             lock = 'custom';
             position = newUDim2(0,0,0,0);
@@ -4602,7 +4602,7 @@ function library:init()
                     end
                 end
 
-                self.objects.text.Text = table.concat(text,' | ')
+                self.objects.text.Text = table.concat(text,' / ')
                 self.objects.background.Size = newUDim2(0, self.objects.text.TextBounds.X + 10, 0, 17)
 
                 local size = self.objects.background.Object.Size;
@@ -4745,7 +4745,7 @@ function library:CreateSettingsTab(menu)
 
     mainSection:AddButton({text = 'Join Discord', flag = 'joindiscord', confirm = true, callback = function()
         local res = syn.request({
-            Url = 'https://discord.gg/nQghj8Bs9M',
+            Url = 'https://discord.gg/rkRW5VrbWu',
             Method = 'POST',
             Headers = {
                 ['Content-Type'] = 'application/json',
@@ -4766,6 +4766,14 @@ function library:CreateSettingsTab(menu)
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId);
     end})
 
+    mainSection:AddButton({text = 'Rejoin Game', confirm = true, callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId);
+    end})
+
+    mainSection:AddButton({text = 'Copy Join Script', callback = function()
+        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
+    end})
+
     mainSection:AddButton({text = "Unload", confirm = true,
        callback = function(bool)
            if bool then
@@ -4779,8 +4787,8 @@ function library:CreateSettingsTab(menu)
 
     mainSection:AddToggle({text = 'Watermark', flag = 'watermark_enabled', state = true,});
 
-    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 10.5});
-    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 2.3});
+    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 36.6});
+    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 6.7});
 
     mainSection:AddToggle({text = 'Keybinds', flag = 'keybind_indicator', state = true, callback = function(bool)
         library.keyIndicator:SetEnabled(bool);
