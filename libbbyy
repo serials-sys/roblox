@@ -1310,13 +1310,16 @@ function library:init()
                 Parent = objs.groupInnerBorder;
             })
 
+
             objs.tabHolder = utility:Draw('Square', {
-                Size = newUDim2(2,0,0,100);
-                Position = newUDim2(0,0,0,0);
-                Parent = objs.groupBackground;
-                Transparency = 0;
-                ZIndex = z+1;
+                Size = newUDim2(1, -40, 0, 50),  -- Wider with some padding
+                Position = newUDim2(0.5, 0, 0, 10),  -- Centered horizontally
+                AnchorPoint = Vector2.new(0.5, 0),  -- Center anchor
+                Parent = objs.groupBackground,
+                Transparency = 0,
+                ZIndex = z+1
             })
+
 
             objs.columnholder1 = utility:Draw('Square', {
                 Size = newUDim2(.48, 0, .96, 0);
