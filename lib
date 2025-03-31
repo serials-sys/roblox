@@ -1934,7 +1934,7 @@ function library:init()
                 local z = library.zindexOrder.window + 5;
 
                 objs.background = utility:Draw('Square', {
-                    Size = newUDim2(0,50,1,0);
+                    Size = newUDim2(0,50,3,0);
                     Parent = self.objects.tabHolder;
                     ThemeColor = 'Unselected Tab Background';
                     ZIndex = z;
