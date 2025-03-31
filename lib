@@ -1311,8 +1311,8 @@ function library:init()
             })
 
             objs.tabHolder = utility:Draw('Square', {
-                Size = newUDim2(1,0,0,20);
-                Position = newUDim2(0,0,0,-21);
+                Size = newUDim2(2,0,0,100);
+                Position = newUDim2(0,0,0,0);
                 Parent = objs.groupBackground;
                 Transparency = 0;
                 ZIndex = z+1;
@@ -1934,7 +1934,7 @@ function library:init()
                 local z = library.zindexOrder.window + 5;
 
                 objs.background = utility:Draw('Square', {
-                    Size = newUDim2(0,50,3,0);
+                    Size = newUDim2(0,50,1,0);
                     Parent = self.objects.tabHolder;
                     ThemeColor = 'Unselected Tab Background';
                     ZIndex = z;
@@ -4576,7 +4576,7 @@ function library:init()
                 {'0 fps', true},
                 {'0ms', true},
                 {'00:00:00', true},
-                {'M, D, Y', false},
+                {'M, D, Y', true},
             };
             lock = 'custom';
             position = newUDim2(0,0,0,0);
@@ -4602,7 +4602,7 @@ function library:init()
                     end
                 end
 
-                self.objects.text.Text = table.concat(text,' | ')
+                self.objects.text.Text = table.concat(text,' / ')
                 self.objects.background.Size = newUDim2(0, self.objects.text.TextBounds.X + 10, 0, 17)
 
                 local size = self.objects.background.Object.Size;
@@ -4787,8 +4787,8 @@ function library:CreateSettingsTab(menu)
 
     mainSection:AddToggle({text = 'Watermark', flag = 'watermark_enabled', state = true,});
 
-    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 6});
-    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 1});
+    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 36.6});
+    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 6.7});
 
     mainSection:AddToggle({text = 'Keybinds', flag = 'keybind_indicator', state = true, callback = function(bool)
         library.keyIndicator:SetEnabled(bool);
