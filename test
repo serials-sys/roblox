@@ -1081,7 +1081,7 @@ function library:init()
                 local objs = value.objects;
 
                 objs.background = utility:Draw('Square', {
-                    Size = newUDim2(1, 0, 0, 36);
+                    Size = newUDim2(1, 200, 0, 26);
                     ThemeColor = 'Background';
                     ZIndex = z;
                     Parent = indicator.objects.background;
