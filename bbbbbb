@@ -4679,9 +4679,9 @@ objs.valueLabel = utility:Draw('Text', {
         end
     end)
 
-    self.keyIndicator = self.NewIndicator({title = 'Keybinds', pos = newUDim2(0,15,0,325), enabled = true});
+    self.keyIndicator = self.NewIndicator({title = 'Keybinds', pos = newUDim2(0,30,0,370), enabled = true});
     
-    self.targetIndicator = self.NewIndicator({title = 'Target Info', pos = newUDim2(0,30,0,400), enabled = true});
+    self.targetIndicator = self.NewIndicator({title = 'Target Info', pos = newUDim2(0,30,0,370), enabled = true});
     self.targetName = self.targetIndicator:AddValue({key = 'Name     :', value = 'nil'})
     self.targetHealth = self.targetIndicator:AddValue({key = 'Health   :', value = '0hp'})
     self.targetDistance = self.targetIndicator:AddValue({key = 'Distance :', value = '0m'})
@@ -4694,7 +4694,7 @@ objs.valueLabel = utility:Draw('Text', {
 end
 
 function library:CreateSettingsTab(menu)
-    local settingsTab = menu:AddTab('  Settings  ', 999);
+    local settingsTab = menu:AddTab('          Settings ⚙️        ', 999);
     local configSection = settingsTab:AddSection('Config', 1);
     local mainSection = settingsTab:AddSection('Main', 1);
 
