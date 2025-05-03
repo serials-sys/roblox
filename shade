@@ -63,8 +63,8 @@ local library = {
     open = false;
     opening = false;
     hasInit = false;
-    cheatname = startupArgs.cheatname or 'Clanware';
-    gamename = startupArgs.gamename or 'Universal';
+    cheatname = startupArgs.cheatname or 'shade.wtf';
+    gamename = startupArgs.gamename or 'Project Delta';
     fileext = startupArgs.fileext or '.txt';
 }
 
