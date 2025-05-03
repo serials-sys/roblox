@@ -4572,9 +4572,9 @@ function library:init()
             text = {
                 {self.cheatname, true},
                 {"Private", false},
-                {self.gamename, false},
+                {self.gamename, true},
                 {'0 fps', true},
-                {'0ms', false},
+                {'0ms', true},
                 {'00:00:00', false},
                 {'M, D, Y', false},
             };
@@ -4700,7 +4700,7 @@ function library:init()
 end
 
 function library:CreateSettingsTab(menu)
-    local settingsTab = menu:AddTab('  Settings  ', 999);
+    local settingsTab = menu:AddTab('          Settings          ', 999);
     local configSection = settingsTab:AddSection('Config', 1);
     local mainSection = settingsTab:AddSection('Main', 1);
 
