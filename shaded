@@ -4685,13 +4685,21 @@ function library:init()
     end)
 
     self.keyIndicator = self.NewIndicator({title = 'Keybinds', pos = newUDim2(0,15,0,325), enabled = true});
-    
-    self.targetIndicator = self.NewIndicator({title = 'Target Info', pos = newUDim2(0,15,0,350), enabled = false});
-    self.targetName = self.targetIndicator:AddValue({key = 'Name     :', value = 'nil'})
-    self.targetDisplay = self.targetIndicator:AddValue({key = 'DName    :', value = 'nil'})
-    self.targetHealth = self.targetIndicator:AddValue({key = 'Health   :', value = '0'})
-    self.targetDistance = self.targetIndicator:AddValue({key = 'Distance :', value = '0m'})
-    self.targetTool = self.targetIndicator:AddValue({key = 'Weapon   :', value = 'nil'})
+
+
+    self.inventoryIndicator = self.NewIndicator({title = 'Target Inventory', pos = newUDim2(0,15,0,350), enabled = false});
+    self.hotbarSlot1 = self.inventoryIndicator:AddValue({key = 'Slot 1     ', value = 'none'})
+    self.hotbarSlot2 = self.inventoryIndicator:AddValue({key = 'Slot 2     ', value = 'none'})
+    self.hotbarSlot3 = self.inventoryIndicator:AddValue({key = 'Slot 3     ', value = 'none'})
+    self.inventoryGloves = self.inventoryIndicator:AddValue({key = 'Gloves     ', value = 'none'})
+    self.inventoryHelmet = self.inventoryIndicator:AddValue({key = 'Helmet     ', value = 'none'})
+    self.inventoryMask = self.inventoryIndicator:AddValue({key = 'Mask     ', value = 'none'})
+    self.inventoryBackpack = self.inventoryIndicator:AddValue({key = 'Backpack     ', value = 'none'})
+    self.inventoryRig = self.inventoryIndicator:AddValue({key = 'Rig     ', value = 'none'})
+    self.inventoryShirt = self.inventoryIndicator:AddValue({key = 'Shirt     ', value = 'none'})
+    self.inventoryLeg = self.inventoryIndicator:AddValue({key = 'Leg     ', value = 'none'})
+    self.inventoryPants = self.inventoryIndicator:AddValue({key = 'Pants     ', value = 'none'})
+
 
     self:SetTheme(library.theme);
     self:SetOpen(true);
@@ -4798,6 +4806,16 @@ function library:CreateSettingsTab(menu)
     end});
     mainSection:AddSlider({text = 'Position Y', flag = 'keybind_indicator_y', min = 0, max = 100, increment = .1, value = 30, callback = function()
         library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
+    end});
+
+    mainSection:AddToggle({text = 'Target Inventory', flag = 'target_inventory', state = false, callback = function(bool)
+        library.inventoryIndicator:SetEnabled(bool);
+    end})
+    mainSection:AddSlider({text = 'Position X', flag = 'target_inventory_x', min = 0, max = 100, increment = .1, value = .5, callback = function()
+        library.inventoryIndicator:SetPosition(newUDim2(library.flags.target_inventory_x / 100, 0, library.flags.target_inventory_y / 100, 0));    
+    end});
+    mainSection:AddSlider({text = 'Position Y', flag = 'target_inventory_y', min = 0, max = 100, increment = .1, value = 30, callback = function()
+        library.inventoryIndicator:SetPosition(newUDim2(library.flags.target_inventory_x / 100, 0, library.flags.target_inventory_y / 100, 0));
     end});
 
 
