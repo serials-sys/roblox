@@ -9,7 +9,7 @@
 
 -- Library init
     getgenv().Library = {
-        Directory = "shade",
+        Directory = "zenith",
         Folders = {
             "/fonts",
             "/configs",
@@ -31,7 +31,7 @@
         preset = {
             inline = rgb(46, 46, 46),
             outline = rgb(10, 10, 15),
-            accent = rgba(225, 19, 19, 1),
+            accent = rgb(21, 101, 192),
             background = rgb(20, 20, 25),              
             misc_1 = rgb(30, 30, 35),
             text_color = rgb(245, 245, 245),
