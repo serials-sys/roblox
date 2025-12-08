@@ -4835,29 +4835,6 @@
                     Library:UpdateConfigList() 
                 end})
 
-                local Section = Column:Section({Name = "Server"})
-                Section:Button({Name = "Copy JobId", Callback = function()
-                    setclipboard(game.JobId)
-                end})
-                Section:Button({Name = "Copy GameID", Callback = function()
-                    setclipboard(game.GameId)
-                end})
-                Section:Button({Name = "Copy Join Script", Callback = function()
-                    setclipboard('game:GetService("TeleportService"):TeleportToPlaceInstance(' .. game.PlaceId .. ', "' .. game.JobId .. '", game.Players.LocalPlayer)')
-                end})
-                Section:Button({Name = "Rejoin", Callback = function()
-                    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, lp)
-                end})
-                Section:Button({Name = "Join New Server", Callback = function()
-                    local apiRequest = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
-                    local data = apiRequest.data[math.random(1, #apiRequest.data)]
-
-                    if data.playing <= Flags["MaxPlayers"] then 
-                        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, data.id)
-                    end 
-                end})
-                Section:Slider({Name = "Max Players", Min = 0, Max = 40, Default = 10, Decimal = 1, Flag = "MaxPlayers"})
-
             -- 
 
             -- Theming 
@@ -4912,7 +4889,7 @@
                 Section:Slider({Name = "Dragging Speed", Min = 0, Max = 1, Decimal = .01, Default = .05, Callback = function(num)
                     Library.DraggingSpeed = num
                 end})
-                Section:Label({Name = "Menu Bind"}):Keybind({Name = "Menu Bind", Key = Enum.KeyCode.E, Callback = function(bool) 
+                Section:Label({Name = "Menu Bind"}):Keybind({Name = "Menu Bind", Key = Enum.KeyCode.Delete, Callback = function(bool) 
                     print(bool)
                     Window.SetVisible(bool) 
                 end})
