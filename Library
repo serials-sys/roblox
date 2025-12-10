@@ -4890,7 +4890,6 @@
                     Library.DraggingSpeed = num
                 end})
                 Section:Label({Name = "Menu Bind"}):Keybind({Name = "Menu Bind", Key = Enum.KeyCode.Delete, Callback = function(bool) 
-                    print(bool)
                     Window.SetVisible(bool) 
                 end})
                 Window.Tweening = false
@@ -4900,9 +4899,6 @@
                 Section:Toggle({Name = "Toggle Keybind List", Callback = function(bool)
                     Library.KeybindList.Items.Holder.Visible = bool 
                     Library.KeybindList.Items.List.Visible = bool 
-                end})
-                Section:Textbox({Name = "Custom Menu Name", Default = Window.Name, Callback = function(text)
-                    Window.Name = text
                 end})
                 Section:Dropdown({Name = "Font", Options = FontIndexes, Callback = function(option)
                     for _,text in themes.utility.text_color.TextColor3 do 
@@ -4920,14 +4916,6 @@
                     if Window.Items.Holder.Visible then 
                         Library.Blur.Size = int
                     end 
-                end})
-                Section:Button({Name = "Test", Callback = function()
-                    local Notification = Library:Notification({Name = "Hello there!", Lifetime = 5})
-                    Notification:NotificationButton({Name = "Discard", Callback = function()
-                        Notification.DestroyNotif()
-                    end})
-                    Notification:NotificationButton({Name = "Make another", Callback = function()
-                    end})
                 end})
             -- 
         end
